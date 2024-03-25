@@ -1,0 +1,25 @@
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+body {
+    height: 100vh !important;
+}
+.zero_bookings h1 {
+    text-align: center;
+    color: #2e1b69;
+    padding-top: 5em;
+}
+
+.zero_bookings a {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #2e1b69;
+    padding: 10px 20px;
+    margin: 20px auto;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 200px;
+}

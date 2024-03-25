@@ -1,0 +1,32 @@
+.delete-profile-container {
+    max-width: 400px;
+    margin: 5em auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.delete-profile-container h1 {
+    margin-bottom: 20px;
+}
+
+.delete-profile-container form {
+    margin-bottom: 20px;
+}
+
+.delete-profile-container form button.delete-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-profile-container form button.delete-btn:hover {
+    background-color: #c82333;
+}
