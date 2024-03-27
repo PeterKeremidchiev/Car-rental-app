@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        body {
+            background-color: #ccc;
+        }
+        .profile-container {
+            max-width: 400px;
+            margin: 5em auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .profile-container h1 {
+            margin-bottom: 10px;
+        }
+
+        .profile-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .profile-container h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .profile-container p {
+            margin-bottom: 20px;
+        }
+
+        .edit-profile-button a {
+            background-color: #007bff;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .edit-profile-button a:hover {
+            background-color: red;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+
+<body class="sub_page">
+    <div class="profile-container">
+        <h1>{{ object.full_name }}</h1>
+        {% if object.profile_picture %}
+            <div class="img-box">
+                <img src="{{ object.profile_picture }}" alt="profile-image" />
+            </div>
+        {% else %}
+            <div class="img-box">
+                <img src="{% static 'images/b-1.jpg' %}" alt="">
+            </div>
+        {% endif %}
+        <h2>{{ object.user.email }}</h2>
+        <h2>Your bookings: {{ bookings }}</h2>
+        <p>Do you want to delete or edit your profile?</p>
+        <div class="edit-profile-button">
+            <a href="{% url 'profile_delete' pk=object.pk %}">Delete</a>
+            <a href="{% url 'profile_edit' pk=object.pk %}">Edit</a>
+        </div>
+    </div>
+</body>
+{% endblock %}

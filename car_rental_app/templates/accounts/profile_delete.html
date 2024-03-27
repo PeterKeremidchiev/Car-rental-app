@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+
+        .delete-profile-container {
+            max-width: 400px;
+            margin: 5em auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .delete-profile-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .delete-profile-container form {
+            margin-bottom: 20px;
+        }
+
+        .delete-profile-container form button.delete-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .delete-profile-container form button.delete-btn:hover {
+            background-color: #c82333;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+<body class="sub_page">
+    <div class="delete-profile-container">
+        <h1>Are you sure you want to delete your profile? </h1>
+
+        <form id="delete" action="{% url 'profile_delete' pk=object.pk %}" method="post">
+            {% csrf_token %}
+            <button class="delete-btn" type="submit">Yes 😢</button>
+        </form>
+    </div>
+</body>
+{% endblock %}
