@@ -5,7 +5,7 @@ from django.urls import reverse_lazy, reverse
 
 from django.views import generic as views
 
-from car_rental_app.accounts.forms import CarRentalUserCreationForm
+from car_rental_app.accounts.forms import CarRentalUserCreationForm, ProfileUpdateForm, ProfileDeleteForm
 from car_rental_app.accounts.models import CarRentalUser, Profile
 from car_rental_app.bookings.models import Booking
 
@@ -46,24 +46,20 @@ class ProfileDetailsView(views.DetailView):
 class ProfileUpdateView(views.UpdateView):
     queryset = Profile.objects.all()
     template_name = "accounts/profile-edit.html"
-    fields = ("first_name", "last_name", "profile_picture")
+    form_class = ProfileUpdateForm
 
     def get_success_url(self):
-        return reverse("profile_details", kwargs={
-            "pk": self.object.pk,
-        })
-
-    def get_form(self, form_class=None):
-        form = super().get_form(form_class)
-        form.fields["first_name"].initial = self.object.first_name
-        form.fields["last_name"].initial = self.object.last_name
-        form.fields["profile_picture"].initial = self.object.profile_picture
-        form.fields["first_name"].widget.attrs["placeholder"] = "Enter a first name"
-        form.fields["last_name"].widget.attrs["placeholder"] = "Enter a last name"
-        form.fields["profile_picture"].widget.attrs["placeholder"] = "Enter a profile picture URL"
-        return form
+        return reverse("profile_details", kwargs={"pk": self.object.pk})
 
 class ProfileDeleteView(views.DeleteView):
-    queryset = Profile.objects.all()
+    model = Profile
     template_name = "accounts/profile_delete.html"
     success_url = reverse_lazy('index')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ProfileDeleteForm(instance=self.object)
+        return context
