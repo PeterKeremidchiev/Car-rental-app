@@ -1,0 +1,24 @@
+
+#return-to-top {
+  display: none;
+  position: fixed;
+  bottom: 1.5em;
+  right: 1.5em;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 1.3em;
+  border-radius: 30%;
+}
+
+#return-to-top i {
+  font-size: 1.7em;
+}
+
+#return-to-top:hover {
+  background-color: #555;
+}
+

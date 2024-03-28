@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .container {
+            max-width: 80%;
+            justify-content: center/* Adjust the width as needed */
+            margin: 7em auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .car-details {
+            display: flex;
+            align-items: flex-start; /* Align the car details at the top */
+            justify-content: center; /* Center the car details horizontally */
+            margin-top: 20px; /* Add some spacing between the car image and details */
+        }
+
+        .car-image {
+            flex-basis: 50%;
+            margin-right: 20px; /* Add some space between the image and details */
+        }
+
+        .car-image img {
+            max-width: 60%; /* Make the image responsive */
+            height: auto;
+        }
+
+        .car-specs {
+            flex-basis: 50%;
+            text-align: left; /* Align the car details text to the left */
+        }
+
+        .car-specs h2 {
+            font-size: 2em; /* Increase the font size of the car make and model */
+            color: #333;
+            margin-bottom: 0.3em;
+            padding: 1em;
+        }
+
+        .car-specs ul {
+            list-style-type: none;
+            padding: 1em;
+        }
+
+        .car-specs ul li {
+            font-size: 18px; /* Increase the font size of the car details */
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .images-inside {
+            margin-bottom: -10em;
+            margin-top: 3em;
+        }
+        .price {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            font-size: 1.5em;
+            color: #fff;
+            padding: 0.3em 0.8em;
+            text-decoration: none; /* Remove default link underline */
+             /* Ensure inline-block display for proper alignment */
+        }
+
+        .price a:hover {
+            background-color: #ff8c00;
+            text-decoration: none; /* Darker orange on hover */
+        }
+
+        .price a {
+            background-color: #ccc;
+            padding: 0.2em;
+            border: 1px solid black;
+            border-radius: 0.3em;
+            color: black; /* Inherit text color from parent */
+            text-decoration: none; /* Remove default link underline */
+        }
+
+    </style>
+
+
+    <body class="sub_page">
+        <div class="container">
+            <div class="car-details">
+                <div class="car-image">
+                    <img src="{{ object.image }}" alt="{{ object.make }} {{ object.model }}">
+                </div>
+                <div class="car-specs">
+                    <h2>{{ object.make }} {{ object.model }}</h2>
+                    <ul>
+                        <li><strong>Year:</strong> {{ object.year }}</li>
+                        <li><strong>Price per day:</strong> ${{ object.price_per_day }}</li>
+                        <li><strong>Type of fuel:</strong> {{ object.type_of_fuel }}</li>
+                        <li><strong>Fuel consumption:</strong> {{ object.fuel_consumption }}</li>
+                        <li><strong>Transmission:</strong> {{ object.transmission }}</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="images-inside">
+                <h2>More images from inside the car</h2>
+            </div>
+            <section class="blog_section layout_padding">
+
+                <div class="blog_container">
+                  <div class="layout_padding2-top">
+                    <div class="carousel-wrap ">
+                      <div class="owl-carousel">
+
+                        {% for image in object.images.all %}
+                            <div class="item">
+                              <div class="box">
+
+                                <div class="img-box">
+
+                                  <img src="{{ image.image_url }}" style="height: 40vh;" alt="">
+                                </div>
+
+                              </div>
+                            </div>
+
+                        {% endfor %}
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+            </section>
+            <div class="price">
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'book_car' pk=object.pk %}">
+                        Rent {{ object.price_per_day }}$
+                    </a>
+                  {% else %}
+                    <a href="{% url 'login' %}">
+                        Rent {{ object.price_per_day }}$
+                    </a>
+
+                  {% endif %}
+                  <a href="{% url 'cars' %}">
+                        Return to cars
+                  </a>
+            </div>
+        </div>
+    </body>
+{% endblock %}
