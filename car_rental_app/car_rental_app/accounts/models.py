@@ -63,7 +63,6 @@ class Profile(models.Model):
         return self.first_name or self.last_name or ''
 
     def delete(self, *args, **kwargs):
-        # Delete the user before deleting the profile
         self.user.delete()
         super().delete(*args, **kwargs)
 
