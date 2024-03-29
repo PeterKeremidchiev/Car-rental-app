@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic as views
 from django.shortcuts import render, get_object_or_404, redirect
 
+from car_rental_app.bookings.forms import ReviewForm
 from car_rental_app.bookings.models import Booking
 from car_rental_app.cars.models import Car
 
@@ -43,3 +44,19 @@ class DeleteBookingView(views.View):
             booking.delete()
 
         return redirect('book_list')
+
+def add_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+            return redirect('index')
+    else:
+        form = ReviewForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'bookings/add_review.html', context)
