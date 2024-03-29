@@ -13,6 +13,16 @@
             background-color: #f9f9f9;
             text-align: center;
         }
+        .delete-profile-container form input[type="text"],
+        .delete-profile-container form input[type="email"],
+        .delete-profile-container form input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
 
         .delete-profile-container h1 {
             margin-bottom: 20px;
@@ -46,6 +56,7 @@
         <h1>Are you sure you want to delete your profile? </h1>
 
         <form id="delete" action="{% url 'profile_delete' pk=object.pk %}" method="post">
+            {{ form.as_p }}
             {% csrf_token %}
             <button class="delete-btn" type="submit">Yes 😢</button>
         </form>
