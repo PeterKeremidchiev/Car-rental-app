@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'car_rental_app.bookings',
     'car_rental_app.accounts',
     'car_rental_app.web',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
