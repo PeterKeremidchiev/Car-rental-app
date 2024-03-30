@@ -1,10 +1,42 @@
 {% extends 'base.html' %}
+
 {% block content %}
     <style>
         footer {
             position: fixed;
             bottom: 0;
-    }
+        }
+        .detail-box {
+            text-align: center;
+        }
+        .price {
+            display: flex;
+            justify-content: space-between;
+            gap: 1em;
+            font-size: 1.5em;
+            color: #fff;
+            padding: 0.3em 0.8em;
+            text-decoration: none; /* Remove default link underline */
+             /* Ensure inline-block display for proper alignment */
+        }
+
+        .price a:hover {
+            background-color: #ff8c00;
+            text-decoration: none; /* Darker orange on hover */
+        }
+
+        .price a {
+            background-color: #ccc;
+            padding: 0.2em;
+            border: 1px solid black;
+            border-radius: 0.3em;
+            color: black; /* Inherit text color from parent */
+            text-decoration: none; /* Remove default link underline */
+        }
+        .no-cars {
+            text-align: center;
+        }
+
     </style>
 
 <body class="sub_page">
@@ -15,6 +47,7 @@
           <div class="layout_padding2-top">
             <div class="carousel-wrap ">
               <div class="owl-carousel">
+
                 {% for object in object_list %}
                     {% if object.available %}
                         <div class="item">
@@ -37,13 +70,25 @@
                                     <a href="{% url 'login' %}">
                                         Rent {{ object.price_per_day }}$
                                     </a>
+
                                   {% endif %}
+                                  <a href="{% url 'car_detail' pk=object.pk %}">
+                                        Details
+                                  </a>
                               </div>
                             </div>
                           </div>
                         </div>
                     {% endif %}
                 {% endfor %}
+
+              </div>
+            </div>
+          <div class="no-cars">
+              {% if not available_cars %}
+                  <h1>No cars available</h1>
+              {% endif %}
+          </div>
           </div>
         </div>
     </section>
