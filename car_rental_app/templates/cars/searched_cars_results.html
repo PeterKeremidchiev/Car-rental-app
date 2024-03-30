@@ -21,6 +21,33 @@
             text-decoration: none;
             width: 200px;
         }
+        .detail-box {
+            text-align: center;
+        }
+        .price {
+            display: flex;
+            justify-content: space-between;
+            gap: 1em;
+            font-size: 1.5em;
+            color: #fff;
+            padding: 0.3em 0.8em;
+            text-decoration: none; /* Remove default link underline */
+             /* Ensure inline-block display for proper alignment */
+        }
+
+        .price a:hover {
+            background-color: #ff8c00;
+            text-decoration: none; /* Darker orange on hover */
+        }
+
+        .price a {
+            background-color: #ccc;
+            padding: 0.2em;
+            border: 1px solid black;
+            border-radius: 0.3em;
+            color: black; /* Inherit text color from parent */
+            text-decoration: none; /* Remove default link underline */
+        }
     </style>
 <body class="sub_page">
     {% if cars %}
@@ -45,6 +72,9 @@
                           <div class="price">
                               <a href="{% url 'book_car' pk=car.pk %}">
                                   Rent {{ car.price_per_day }}$
+                              </a>
+                              <a href="{% url 'car_detail' pk=car.pk %}">
+                                  Details
                               </a>
                           </div>
                         </div>
