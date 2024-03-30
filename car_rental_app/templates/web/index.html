@@ -1,7 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block content %}
+    <style>
+
+        .detail-box {
+            text-align: center;
+            max-width: 30vw;
+
+            overflow: auto;
+
+        }
+        .detail-box p {
+            font-size: 1em;
+
+        }
+        .price {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1em;
+            font-size: 1em;
+            color: #fff;
+            padding: 0.3em 0.8em;
+            text-decoration: none; /* Remove default link underline */
+             /* Ensure inline-block display for proper alignment */
+        }
+
+        .price a:hover {
+            background-color: #ff8c00;
+            text-decoration: none; /* Darker orange on hover */
+        }
+
+        .price a {
+            background-color: #ccc;
+            padding: 0.2em;
+            border: 1px solid black;
+            border-radius: 0.3em;
+            color: black; /* Inherit text color from parent */
+            text-decoration: none; /* Remove default link underline */
+        }
+
+    </style>
+
   <div class="hero_area">
     <!-- end header section -->
     <!-- slider section -->
@@ -16,9 +58,9 @@
               <div class="carousel-item active">
                 <div class="detail-box">
                   <h1>
-                    Rent Car <br>
-                    Experts <br>
-                    Service
+                    Discover <br>
+                      Premium Car <br>
+                      Rental Services
                   </h1>
                   <a href="{% url 'contacts' %}">
                     Contact Us
@@ -28,9 +70,9 @@
               <div class="carousel-item">
                 <div class="detail-box">
                   <h1>
-                    Rent Car <br>
-                    Experts <br>
-                    Service
+                    Unlock Unmatched <br>
+                      Comfort with <br>
+                      Our Fleet
                   </h1>
                   <a href="{% url 'contacts' %}">
                     Contact Us
@@ -40,9 +82,9 @@
               <div class="carousel-item">
                 <div class="detail-box">
                   <h1>
-                    Rent Car <br>
-                    Experts <br>
-                    Service
+                    Discover the <br>
+                      Perfect Ride <br>
+                      for Every Adventure
                   </h1>
                   <a href="">
                     Contact Us
@@ -64,121 +106,74 @@
     <!-- end slider section -->
   </div>
   <!-- book section -->
-  <section class="book_section">
-    <div class="form_container">
-      <form action="{% url 'search_cars' %}" method="get">
-        <div class="form-row">
-          <div class="col-lg-8">
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="parkingName">Make</label>
-                <input type="text" class="form-control" placeholder="Make" name="make">
-              </div>
-              <div class="col-md-6">
-                <label for="parkingNumber">Model</label>
-                <input type="text" class="form-control" placeholder="Model" name="model">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="parkingName">Year</label>
-                <input type="text" class="form-control" placeholder="2015" name="year">
-              </div>
-              <div class="col-3">
-                <label for="cost_range">Cost per day</label>
-{#                <input type="text" class="form-control" placeholder="07/09/2020">#}
-                <select name="price_per_day">
-                    <option value="">----------</option>
-                    <option value="0-50">$0 - $50</option>
-                    <option value="51-100">$51 - $100</option>
-                    <option value="101-200">$101 - $200</option>
-                    <option value="201-1000">$201 - $1000</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="btn-container">
-              <button type="submit" class="">
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
-        {% csrf_token %}
-      </form>
-    </div>
-    <div class="img-box">
-      <img src="{% static 'images/book-car.png' %}" alt="">
-    </div>
-  </section>
+  {% include 'partials/car_search.html' %}
 
   <!-- end book section -->
 
   <!-- car section -->
 
-  <section class="car_section layout_padding2-top layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Better Way For Find Your Favourite Cars
-        </h2>
-        <p>
-          It is a fact that a reader will be distracted by the readable
-        </p>
-      </div>
-      <div class="car_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static 'images/c-1.png' %}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Choose Your Car
-            </h5>
-            <p>
-              It is a fact that a reader will be distracted by the readable content of a page when
-            </p>
-            <a href="{% url 'cars' %}">
-              Read More
-            </a>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static 'images/c-2.png' %}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Get Your Car
-            </h5>
-            <p>
-              It is a fact that a reader will be distracted by the readable content of a page when
-            </p>
-            <a href="">
-              Read More
-            </a>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static 'images/c-3.png' %}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Contact Your Dealer
-            </h5>
-            <p>
-              It is a fact that a reader will be distracted by the readable content of a page when
-            </p>
-            <a href="{% url 'contacts' %}">
-              Read More
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+{#  <section class="car_section layout_padding2-top layout_padding-bottom">#}
+{#    <div class="container">#}
+{#      <div class="heading_container">#}
+{#        <h2>#}
+{#          Better Way For Find Your Favourite Cars#}
+{#        </h2>#}
+{#        <p>#}
+{#          It is a fact that a reader will be distracted by the readable#}
+{#        </p>#}
+{#      </div>#}
+{#      <div class="car_container">#}
+{#        <div class="box">#}
+{#          <div class="img-box">#}
+{#            <img src="{% static 'images/c-1.png' %}" alt="">#}
+{#          </div>#}
+{#          <div class="detail-box">#}
+{#            <h5>#}
+{#              Choose Your Car#}
+{#            </h5>#}
+{#            <p>#}
+{#              It is a fact that a reader will be distracted by the readable content of a page when#}
+{#            </p>#}
+{#            <a href="{% url 'cars' %}">#}
+{#              Read More#}
+{#            </a>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="box">#}
+{#          <div class="img-box">#}
+{#            <img src="{% static 'images/c-2.png' %}" alt="">#}
+{#          </div>#}
+{#          <div class="detail-box">#}
+{#            <h5>#}
+{#              Get Your Car#}
+{#            </h5>#}
+{#            <p>#}
+{#              It is a fact that a reader will be distracted by the readable content of a page when#}
+{#            </p>#}
+{#            <a href="">#}
+{#              Read More#}
+{#            </a>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="box">#}
+{#          <div class="img-box">#}
+{#            <img src="{% static 'images/c-3.png' %}" alt="">#}
+{#          </div>#}
+{#          <div class="detail-box">#}
+{#            <h5>#}
+{#              Contact Your Dealer#}
+{#            </h5>#}
+{#            <p>#}
+{#              It is a fact that a reader will be distracted by the readable content of a page when#}
+{#            </p>#}
+{#            <a href="{% url 'contacts' %}">#}
+{#              Read More#}
+{#            </a>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
 
   <!-- end car section -->
 
@@ -195,10 +190,10 @@
         <div class="col-md-4 col-lg-3">
           <div class="detail-box">
             <h2>
-              About Our Cars
+              About us
             </h2>
             <p>
-              It is a fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem
+              Empowering journeys, one ride at a time. Discover the freedom of seamless travel with our intuitive car rental platform. Your adventure starts here.
             </p>
             <a href="{% url 'about' %}">
               Read More
@@ -266,6 +261,9 @@
                                         Rent {{ car.price_per_day }}$
                                     </a>
                                   {% endif %}
+                                  <a href="{% url 'car_detail' pk=car.pk %}">
+                                        Details
+                                  </a>
                               </div>
                             </div>
                           </div>
@@ -282,100 +280,14 @@
 
   <!-- end rent section -->
 
-{#  <!-- blog section -->#}
-{##}
-{#  <section class="blog_section layout_padding">#}
-{#    <div class="container">#}
-{#      <div class="heading_container">#}
-{#        <h2>#}
-{#          Our Latest Blog#}
-{#        </h2>#}
-{#        <p>#}
-{#          It is a fact that a reader will be distracted by the#}
-{#        </p>#}
-{#      </div>#}
-{#    </div>#}
-{#    <div class="blog_container">#}
-{#      <div class="layout_padding2-top">#}
-{#        <div class="carousel-wrap ">#}
-{#          <div class="owl-carousel">#}
-{#            <div class="item">#}
-{#              <div class="box">#}
-{#                <div class="date-box">#}
-{#                  <h6>#}
-{#                    04 Nov 2019#}
-{#                  </h6>#}
-{#                </div>#}
-{#                <div class="img-box">#}
-{#                  <img src="{% static 'images/b-1.jpg' %}" alt="">#}
-{#                </div>#}
-{#                <div class="detail-box">#}
-{#                  <h5>#}
-{#                    Vintage#}
-{#                  </h5>#}
-{#                  <p>#}
-{#                    It is a fact that a reader will be distracted by the readable The point of using Lorem </p>#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#            <div class="item">#}
-{#              <div class="box">#}
-{#                <div class="date-box">#}
-{#                  <h6>#}
-{#                    04 Nov 2019#}
-{#                  </h6>#}
-{#                </div>#}
-{#                <div class="img-box">#}
-{#                  <img src="{% static 'images/b-2.jpg' %}" alt="">#}
-{#                </div>#}
-{#                <div class="detail-box">#}
-{#                  <h5>#}
-{#                    Steering wheels#}
-{#                  </h5>#}
-{#                  <p>#}
-{#                    It is a  fact that a reader will be distracted by the readable The point of using Lorem </p>#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#            <div class="item">#}
-{#              <div class="box">#}
-{#                <div class="date-box">#}
-{#                  <h6>#}
-{#                    04 Nov 2019#}
-{#                  </h6>#}
-{#                </div>#}
-{#                <div class="img-box">#}
-{#                  <img src="{% static 'images/b-3.jpg' %}" alt="">#}
-{#                </div>#}
-{#                <div class="detail-box">#}
-{#                  <h5>#}
-{#                    Buick Car#}
-{#                  </h5>#}
-{#                  <p>#}
-{#                    It is a long established fact that a reader will be distracted by the readable The point of using Lorem </p>#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{##}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </section>#}
-{##}
-{#  <!-- end blog section -->#}
-
   <!-- us section -->
 
   <section class="us_section">
     <div class="container">
       <div class="heading_container">
         <h2>
-          Why choose Us
+          Why to choose Us
         </h2>
-        <p>
-          It is a long established fact that a reader will be distracted by the
-        </p>
       </div>
     </div>
     <div class="us_container layout_padding2">
@@ -422,7 +334,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
+        <a href="{% url 'about' %}">
           Read More
         </a>
       </div>
@@ -437,97 +349,42 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          What Is say Customer
+          Clients reviews
         </h2>
-        <p>
-          It is a long established fact that a reader will be distracted by the
-        </p>
+        <a href="{% url 'add_review' %}">
+          Add Review
+        </a>
       </div>
       <div class="layout_padding2-top">
         <div class="carousel-wrap ">
           <div class="owl-carousel">
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="{% static 'images/client-1.png' %}" alt="" class="img-1">
-                    <img src="{% static 'images/client-1-white.png' %}" alt="" class="img-2">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Paul
-                    </h6>
+            {% for review in reviews %}
+                <div class="item">
+                  <div class="box">
+                    <div class="detail-box">
 
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="{% static 'images/client-1.png' %}" alt="" class="img-1">
-                    <img src="{% static 'images/client-1-white.png' %}" alt="" class="img-2">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Megan
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="{% static 'images/client-1.png' %}" alt="" class="img-1">
-                    <img src="{% static 'images/client-1-white.png' %}" alt="" class="img-2">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Peter
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="{% static 'images/client-1.png' %}" alt="" class="img-1">
-                    <img src="{% static 'images/client-1-white.png' %}" alt="" class="img-2">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Sam
-                    </h6>
+                      <p>
+                        {{ review.review }}
+                      </p>
+                      <p>
+                        Rating: {{ review.rating }}
+                      </p>
+                    </div>
+                    <div class="client_id">
+                      <div class="img-box">
+                        <img src="{% static 'images/client-1.png' %}" alt="" class="img-1">
+                        <img src="{% static 'images/client-1-white.png' %}" alt="" class="img-2">
+                      </div>
+                      <div class="name">
+                        <h6>
+                          {{ review.user.email }}
+                        </h6>
 
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -537,99 +394,6 @@
 
   <!-- end client section -->
 
-{#  <!-- contact section -->#}
-{##}
-{#  <section class="contact_section layout_padding">#}
-{#    <div class="container">#}
-{#      <div class="heading_container">#}
-{#        <h2>#}
-{#          Request A call back#}
-{#        </h2>#}
-{#      </div>#}
-{#      <div class="row">#}
-{#        <div class="col-md-8 mx-auto">#}
-{#          <div class="form_container">#}
-{#            <form>#}
-{#              <div class="form-row">#}
-{#                <div class="form-group col-md-6">#}
-{#                  <input type="text" class="form-control" id="inputName4" placeholder="Name ">#}
-{#                </div>#}
-{#                <div class="form-group col-md-6">#}
-{#                  <input type="text" class="form-control" id="inputSubject4" placeholder="Phone">#}
-{#                </div>#}
-{#              </div>#}
-{#              <div class="form-row">#}
-{#                <div class="form-group col">#}
-{#                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email id">#}
-{#                </div>#}
-{#              </div>#}
-{#              <div class="form-group">#}
-{#                <input type="text" class="form-control" id="inputMessage" placeholder="Message">#}
-{#              </div>#}
-{#              <div class="d-flex justify-content-center">#}
-{#                <button type="submit" class="">Send</button>#}
-{#              </div>#}
-{#            </form>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#      <div class="contact_items">#}
-{##}
-{#        <a href="">#}
-{#          <div class="img-box">#}
-{#            <img src="images/location.png" alt="">#}
-{#          </div>#}
-{#          <h6>#}
-{#            Loram Ipusum ari#}
-{#            lo elisant na#}
-{#          </h6>#}
-{#        </a>#}
-{#        <a href="">#}
-{#          <div class="img-box">#}
-{#            <img src="images/call.png" alt="">#}
-{#          </div>#}
-{#          <h6>#}
-{#            (+12 1234456789)#}
-{#          </h6>#}
-{#        </a>#}
-{#        <a href="">#}
-{#          <div class="img-box">#}
-{#            <img src="images/mail.png" alt="">#}
-{#          </div>#}
-{#          <h6>#}
-{#            demo@gmail.com#}
-{#          </h6>#}
-{#        </a>#}
-{##}
-{#      </div>#}
-{#      <div class="social_container">#}
-{#        <div class="social-box">#}
-{#          <div>#}
-{#            <a href="">#}
-{#              <img src="images/fb.png" alt="">#}
-{#            </a>#}
-{#          </div>#}
-{#          <div>#}
-{#            <a href="">#}
-{#              <img src="images/twitter.png" alt="">#}
-{#            </a>#}
-{#          </div>#}
-{#          <div>#}
-{#            <a href="">#}
-{#              <img src="images/linkedin.png" alt="">#}
-{#            </a>#}
-{#          </div>#}
-{#          <div>#}
-{#            <a href="">#}
-{#              <img src="images/insta.png" alt="">#}
-{#            </a>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </section>#}
-
-  <!-- end contact section -->
 
   <!-- map section -->
 
@@ -643,5 +407,5 @@
     <!-- end map section -->
   </section>
   <!-- end map section -->
-
+  <button onclick="topFunction()" id="return-to-top" title="Go to top"><i>↑</i></button>
 {% endblock %}
