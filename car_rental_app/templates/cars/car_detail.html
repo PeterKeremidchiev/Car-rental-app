@@ -4,39 +4,42 @@
     <style>
         .container {
             max-width: 80%;
-            justify-content: center/* Adjust the width as needed */
+            justify-content: center;
             margin: 7em auto;
-            padding: 20px;
+            padding: 0.1em;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 1em;
             background-color: #f9f9f9;
             text-align: center;
         }
 
         .car-details {
             display: flex;
-            align-items: flex-start; /* Align the car details at the top */
-            justify-content: center; /* Center the car details horizontally */
-            margin-top: 20px; /* Add some spacing between the car image and details */
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            margin-top: 0.8em;
+            gap: 5em;
         }
 
         .car-image {
-            flex-basis: 50%;
-            margin-right: 20px; /* Add some space between the image and details */
+            margin-right: 1.25em;
         }
 
         .car-image img {
-            max-width: 60%; /* Make the image responsive */
-            height: auto;
+            max-width: 40em;
+            flex-basis: 10%;
+            max-height: 40vh;
+            {#height: 40vh;#}
         }
 
         .car-specs {
-            flex-basis: 50%;
-            text-align: left; /* Align the car details text to the left */
+            flex-basis: 20%;
+            text-align: left;
         }
 
         .car-specs h2 {
-            font-size: 2em; /* Increase the font size of the car make and model */
+            font-size: 2em;
             color: #333;
             margin-bottom: 0.3em;
             padding: 1em;
@@ -48,9 +51,9 @@
         }
 
         .car-specs ul li {
-            font-size: 18px; /* Increase the font size of the car details */
+            font-size: 1.2em;
             color: #666;
-            margin-bottom: 5px;
+            margin-bottom: 0.5em;
         }
         .images-inside {
             margin-bottom: -10em;
@@ -63,13 +66,13 @@
             font-size: 1.5em;
             color: #fff;
             padding: 0.3em 0.8em;
-            text-decoration: none; /* Remove default link underline */
-             /* Ensure inline-block display for proper alignment */
+            text-decoration: none;
+
         }
 
         .price a:hover {
             background-color: #ff8c00;
-            text-decoration: none; /* Darker orange on hover */
+            text-decoration: none;
         }
 
         .price a {
@@ -77,8 +80,13 @@
             padding: 0.2em;
             border: 1px solid black;
             border-radius: 0.3em;
-            color: black; /* Inherit text color from parent */
-            text-decoration: none; /* Remove default link underline */
+            color: black;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .car-image img {
+                max-width: 15em;
+            }
         }
 
     </style>
