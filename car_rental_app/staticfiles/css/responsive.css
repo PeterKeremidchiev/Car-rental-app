@@ -74,26 +74,33 @@
     .best_section .book_now {
         flex-direction: column;
         text-align: center;
+    .detail-box h1 {
+        font-size: 1em;
+        }
+    .navbar-collapse .user_option > a {
+        color: #1b0847;
+    }
     }
 
     .best_section .book_now .detail-box {
         margin-bottom: 25px;
     }
 
-    .blog_section .owl-carousel .owl-nav .owl-prev,
-    .blog_section .owl-carousel .owl-nav .owl-next {
-        top: -40px;
-    }
+    /*.blog_section .owl-carousel .owl-nav .owl-prev,*/
+    /*.blog_section .owl-carousel .owl-nav .owl-next {*/
+    /*    top: -40px;*/
 
-    .blog_section .owl-carousel .owl-nav .owl-prev {
+    /*!*}*!*/
 
-        left: calc(50% - 45px);
-    }
+    /*.blog_section .owl-carousel .owl-nav .owl-prev {*/
 
-    .blog_section .owl-carousel .owl-nav .owl-next {
+    /*    left: calc(50% - 45px);*/
+    /*}*/
 
-        right: calc(50% - 45px);
-    }
+    /*.blog_section .owl-carousel .owl-nav .owl-next {*/
+
+    /*    right: calc(50% - 45px);*/
+    /*}*/
 }
 
 @media (max-width: 576px) {
@@ -135,3 +142,4 @@
         }
 
     }
+}
