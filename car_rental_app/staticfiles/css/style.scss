@@ -712,35 +712,36 @@ a:focus {
     }
   }
 
-  .owl-carousel .owl-nav .owl-prev,
-  .owl-carousel .owl-nav .owl-next {
-    width: 50px;
-    height: 50px;
-    background-size: 15px;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: -115px;
-    outline: none;
-  }
-
-  .owl-carousel .owl-nav .owl-prev {
-    left: calc(95% - 45px);
-    background-image: url(../images/left-angle.png);
-
-    &:hover {
-      background-image: url(../images/left-angle-grey.png);
-    }
-  }
-
-  .owl-carousel .owl-nav .owl-next {
-    right: calc(5% - 45px);
-    background-image: url(../images/right-angle.png);
-
-    &:hover {
-      background-image: url(../images/right-angle-grey.png);
-    }
-  }
+  //.owl-carousel .owl-nav .owl-prev,
+  //.owl-carousel .owl-nav .owl-next {
+  //  width: 50px;
+  //  height: 50px;
+  //  background-size: 15px;
+  //  background-position: center;
+  //  background-repeat: no-repeat;
+  //  position: absolute;
+  //  top: -115px;
+  //  outline: none;
+  //  display: none;
+  //}
+  //
+  //.owl-carousel .owl-nav .owl-prev {
+  //  left: calc(95% - 45px);
+  //  background-image: url(../images/left-angle.png);
+  //
+  //  &:hover {
+  //    background-image: url(../images/left-angle-grey.png);
+  //  }
+  //}
+  //
+  //.owl-carousel .owl-nav .owl-next {
+  //  right: calc(5% - 45px);
+  //  background-image: url(../images/right-angle.png);
+  //
+  //  &:hover {
+  //    background-image: url(../images/right-angle-grey.png);
+  //  }
+  //}
 }
 
 // end blog section
@@ -884,35 +885,36 @@ a:focus {
     position: relative;
   }
 
-  .owl-carousel .owl-nav .owl-prev,
-  .owl-carousel .owl-nav .owl-next {
-    width: 50px;
-    height: 50px;
-    background-size: 15px;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 100%;
-    outline: none;
-  }
-
-  .owl-carousel .owl-nav .owl-prev {
-    left: calc(50% - 45px);
-    background-image: url(../images/left-angle.png);
-
-    &:hover {
-      background-image: url(../images/left-angle-grey.png);
-    }
-  }
-
-  .owl-carousel .owl-nav .owl-next {
-    right: calc(50% - 45px);
-    background-image: url(../images/right-angle.png);
-
-    &:hover {
-      background-image: url(../images/right-angle-grey.png);
-    }
-  }
+  //.owl-carousel .owl-nav .owl-prev,
+  //.owl-carousel .owl-nav .owl-next {
+  //  width: 50px;
+  //  height: 50px;
+  //  background-size: 15px;
+  //  background-position: center;
+  //  background-repeat: no-repeat;
+  //  position: absolute;
+  //  top: 100%;
+  //  outline: none;
+  //  display: none;
+  //}
+  //
+  //.owl-carousel .owl-nav .owl-prev {
+  //  left: calc(50% - 45px);
+  //  background-image: url(../images/left-angle.png);
+  //
+  //  &:hover {
+  //    background-image: url(../images/left-angle-grey.png);
+  //  }
+  //}
+  //
+  //.owl-carousel .owl-nav .owl-next {
+  //  right: calc(50% - 45px);
+  //  background-image: url(../images/right-angle.png);
+  //
+  //  &:hover {
+  //    background-image: url(../images/right-angle-grey.png);
+  //  }
+  //}
 }
 
 // end client section
