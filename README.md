@@ -48,5 +48,5 @@ This project was inspired by my lifelong passion for cars. From tinkering with e
 
 ## Contact
 
-If you have any questions or suggestions, feel free to reach out to us at [peter.keremidchiev@gmail.com].
+If you have any questions or suggestions, feel free to reach out to us at peter.keremidchiev@gmail.com.
 
