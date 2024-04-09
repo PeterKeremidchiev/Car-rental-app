@@ -1,12 +1,73 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<body class="sub_page">
-    <h1>Add Review</h1>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Submit</button>
-    </form>
-</body>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .sub_page {
+            text-align: center;
+        }
+
+        h1 {
+            color: #2e1b69;
+            margin-bottom: 1em;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 5em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 50%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #2e1b69;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3c2680;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+
+        }
+    </style>
+
+    <body class="sub_page">
+        <div class="review_form">
+            <h1>Add Review</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
 {% endblock %}

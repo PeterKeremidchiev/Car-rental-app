@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Contact(models.Model):
     MAX_NAME_LENGTH = 100
     MAX_PHONE_LENGTH = 20

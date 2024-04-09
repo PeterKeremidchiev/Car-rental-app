@@ -27,22 +27,23 @@
             font-size: 1em;
             color: #fff;
             padding: 0.3em 0.8em;
-            text-decoration: none; /* Remove default link underline */
-             /* Ensure inline-block display for proper alignment */
+            text-decoration: none;
+
         }
 
         .price a:hover {
-            background-color: #ff8c00;
-            text-decoration: none; /* Darker orange on hover */
+            background-color: white;
+            text-decoration: none;
         }
 
         .price a {
-            background-color: #ccc;
+            background-color: red;
             padding: 0.2em;
             border: 1px solid black;
             border-radius: 0.3em;
-            color: black; /* Inherit text color from parent */
-            text-decoration: none; /* Remove default link underline */
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
 
@@ -114,72 +115,7 @@
 
   <!-- end book section -->
 
-  <!-- car section -->
 
-{#  <section class="car_section layout_padding2-top layout_padding-bottom">#}
-{#    <div class="container">#}
-{#      <div class="heading_container">#}
-{#        <h2>#}
-{#          Better Way For Find Your Favourite Cars#}
-{#        </h2>#}
-{#        <p>#}
-{#          It is a fact that a reader will be distracted by the readable#}
-{#        </p>#}
-{#      </div>#}
-{#      <div class="car_container">#}
-{#        <div class="box">#}
-{#          <div class="img-box">#}
-{#            <img src="{% static 'images/c-1.png' %}" alt="">#}
-{#          </div>#}
-{#          <div class="detail-box">#}
-{#            <h5>#}
-{#              Choose Your Car#}
-{#            </h5>#}
-{#            <p>#}
-{#              It is a fact that a reader will be distracted by the readable content of a page when#}
-{#            </p>#}
-{#            <a href="{% url 'cars' %}">#}
-{#              Read More#}
-{#            </a>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="box">#}
-{#          <div class="img-box">#}
-{#            <img src="{% static 'images/c-2.png' %}" alt="">#}
-{#          </div>#}
-{#          <div class="detail-box">#}
-{#            <h5>#}
-{#              Get Your Car#}
-{#            </h5>#}
-{#            <p>#}
-{#              It is a fact that a reader will be distracted by the readable content of a page when#}
-{#            </p>#}
-{#            <a href="">#}
-{#              Read More#}
-{#            </a>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="box">#}
-{#          <div class="img-box">#}
-{#            <img src="{% static 'images/c-3.png' %}" alt="">#}
-{#          </div>#}
-{#          <div class="detail-box">#}
-{#            <h5>#}
-{#              Contact Your Dealer#}
-{#            </h5>#}
-{#            <p>#}
-{#              It is a fact that a reader will be distracted by the readable content of a page when#}
-{#            </p>#}
-{#            <a href="{% url 'contacts' %}">#}
-{#              Read More#}
-{#            </a>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </section>#}
-
-  <!-- end car section -->
 
   <!-- about section -->
 
@@ -221,7 +157,7 @@
             Our Best Cars
           </h2>
           <p>
-            It is a fact that a reader will be distracted by the
+            You can find our best cars down bellow or by clicking on the button &#x1F449;
           </p>
         </div>
         <div class="btn-box">

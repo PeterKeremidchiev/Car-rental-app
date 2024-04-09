@@ -9,10 +9,6 @@ from car_rental_app.cars.models import Car
 from car_rental_app.web.forms import ContactForm
 
 
-# Create your views here.
-# class IndexView(views.ListView):
-#     template_name = 'web/index.html'
-
 def index(request):
     cars = Car.objects.all()
     form = CarSearchForm()
