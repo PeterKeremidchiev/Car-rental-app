@@ -1,44 +1,44 @@
 {% load widget_tweaks %}
 {% load static %}
-<section class="book_section">
-    <div class="form_container">
-      <form action="{% url 'search_cars' %}" method="get">
-        <div class="form-row">
-          <div class="col-lg-8">
+    <section class="book_section">
+        <div class="form_container">
+          <form action="{% url 'search_cars' %}" method="get">
             <div class="form-row">
-              <div class="col-md-6">
-                <label for="parkingName">Make</label>
-                {{ form.make|add_class:"form-control" }}
+              <div class="col-lg-8">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <label for="parkingName">Make</label>
+                    {{ form.make|add_class:"form-control" }}
 
+                  </div>
+                  <div class="col-md-6">
+                    <label for="parkingNumber">Model</label>
+                    {{ form.model|add_class:"form-control" }}
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <label for="parkingName">Year</label>
+                    {{ form.year|add_class:"form-control" }}
+                  </div>
+                  <div class="col-3">
+                    <label for="cost_range">Cost per day</label>
+                    {{ form.price_per_day|add_class:"form-control" }}
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label for="parkingNumber">Model</label>
-                {{ form.model|add_class:"form-control" }}
+              <div class="col-lg-4">
+                <div class="btn-container">
+                  <button type="submit" class="">
+                    Search for cars
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="parkingName">Year</label>
-                {{ form.year|add_class:"form-control" }}
-              </div>
-              <div class="col-3">
-                <label for="cost_range">Cost per day</label>
-                {{ form.price_per_day|add_class:"form-control" }}
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="btn-container">
-              <button type="submit" class="">
-                Search for cars
-              </button>
-            </div>
-          </div>
+            {% csrf_token %}
+          </form>
         </div>
-        {% csrf_token %}
-      </form>
-    </div>
-    <div class="img-box">
-      <img src="{% static 'images/book-car.png' %}" alt="">
-    </div>
-  </section>
+        <div class="img-box">
+          <img src="{% static 'images/book-car.png' %}" alt="">
+        </div>
+    </section>

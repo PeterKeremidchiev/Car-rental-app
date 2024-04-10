@@ -106,6 +106,7 @@
                             <h5>{{ object.car.make }} {{ object.car.model }}</h5>
                             <a href="{% url 'book_delete' booking_id=object.id %}">Remove Booking</a>
                             <a href="{% url 'car_detail' pk=object.car.pk %}">View Details</a>
+                            <a href="{% url 'cars' %}">Book Another car</a>
                         </div>
                     </div>
                 {% endfor %}

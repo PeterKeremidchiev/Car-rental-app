@@ -76,7 +76,7 @@
         }
 
         .price a {
-            background-color: red;
+            background-color: #F22324FF;
             padding: 0.2em;
             border: 1px solid black;
             border-radius: 0.3em;
@@ -155,7 +155,11 @@
                   <a href="{% url 'cars' %}">
                         Return to cars
                   </a>
+                  {% if user.is_superuser or user.is_staff %}
+                        <a href="{% url 'car_image_create'%}">Add images</a>
+                  {% endif %}
             </div>
         </div>
     </body>
+
 {% endblock %}

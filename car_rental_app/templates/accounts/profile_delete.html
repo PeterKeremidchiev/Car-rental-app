@@ -62,16 +62,16 @@
             bottom: 0;
         }
     </style>
-<body class="sub_page">
-    <div class="delete-profile-container">
-        <h1>Are you sure you want to delete your profile? </h1>
+    <body class="sub_page">
+        <div class="delete-profile-container">
+            <h1>Are you sure you want to delete your profile? </h1>
 
-        <form id="delete" action="{% url 'profile_delete' pk=object.pk %}" method="post">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <button class="delete-btn" type="submit">Yes 😢</button>
-            <a class="delete-btn" href="{% url 'profile_details' pk=object.pk %}">Go back</a>
-        </form>
-    </div>
-</body>
+            <form id="delete" action="{% url 'profile_delete' pk=object.pk %}" method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <button class="delete-btn" type="submit">Yes 😢</button>
+                <a class="delete-btn" href="{% url 'profile_details' pk=object.pk %}">Go back</a>
+            </form>
+        </div>
+    </body>
 {% endblock %}

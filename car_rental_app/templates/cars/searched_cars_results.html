@@ -50,47 +50,47 @@
             transition: background-color 0.3s ease;
         }
     </style>
-<body class="sub_page">
-    {% if cars %}
-        <section class="blog_section layout_padding">
+    <body class="sub_page">
+        {% if cars %}
+            <section class="blog_section layout_padding">
 
-        <div class="blog_container">
-          <div class="layout_padding2-top">
-            <div class="carousel-wrap ">
-              <div class="owl-carousel">
-                {% for car in cars %}
-                    <div class="item">
-                      <div class="box">
+            <div class="blog_container">
+              <div class="layout_padding2-top">
+                <div class="carousel-wrap ">
+                  <div class="owl-carousel">
+                    {% for car in cars %}
+                        <div class="item">
+                          <div class="box">
 
-                        <div class="img-box">
-                          <img src="{{ car.image }}" style="height: 40vh;" alt="">
-                        </div>
-                        <div class="detail-box">
-                          <h5>
-                              {{ car.make }} {{ car.model }}
-                          </h5>
+                            <div class="img-box">
+                              <img src="{{ car.image }}" style="height: 40vh;" alt="">
+                            </div>
+                            <div class="detail-box">
+                              <h5>
+                                  {{ car.make }} {{ car.model }}
+                              </h5>
 
-                          <div class="price">
-                              <a href="{% url 'book_car' pk=car.pk %}">
-                                  Rent {{ car.price_per_day }}$
-                              </a>
-                              <a href="{% url 'car_detail' pk=car.pk %}">
-                                  Details
-                              </a>
+                              <div class="price">
+                                  <a href="{% url 'book_car' pk=car.pk %}">
+                                      Rent {{ car.price_per_day }}$
+                                  </a>
+                                  <a href="{% url 'car_detail' pk=car.pk %}">
+                                      Details
+                                  </a>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
 
-                {% endfor %}
-          </div>
-        </div>
-    </section>
-    {% else %}
-        <div class="zero_bookings">
-            <h1>No cars found matching your search criteria.</h1>
-            <a href="{% url 'index' %}">Search again</a>
-        </div>
-    {% endif %}
-</body>
+                    {% endfor %}
+              </div>
+            </div>
+        </section>
+        {% else %}
+            <div class="zero_bookings">
+                <h1>No cars found matching your search criteria.</h1>
+                <a href="{% url 'index' %}">Search again</a>
+            </div>
+        {% endif %}
+    </body>
 {% endblock %}

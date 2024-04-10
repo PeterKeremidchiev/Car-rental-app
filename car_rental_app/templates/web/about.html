@@ -5,76 +5,84 @@
 {% block content %}
     <style>
         .reason {
-              display: flex;
-              align-items: center;
-              margin-bottom: 2em;
+            display: flex;
+            align-items: center;
+            margin-bottom: 2em;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s ease, transform 2s ease;
         }
 
         .reason img {
-              width: 5em;
-              height: auto;
-              margin-right: 2em;
-              background-color: #2e1b69;
-              border-radius: 50%;
+            width: 5em;
+            height: auto;
+            margin-right: 2em;
+            background-color: #2e1b69;
+            border-radius: 50%;
         }
 
         .reason p {
-              line-height: 2em;
-              font-size: 1em;
-              color: #333;
-        }
-        .heading{
             line-height: 2em;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .heading {
+            line-height: 2em;
+        }
+
+
+        .reason.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 
-<body class="sub_page">
-
-
-  <section class="about_section layout_padding2-top layout_padding-bottom ">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-7 px-0">
-          <div class="img-box">
-            <img src="{% static 'images/about-img.png' %}" alt="">
-          </div>
-        </div>
-        <div class="col-md-5 col-lg-4">
-          <div class="detail-box">
-            <h2>
-              About Us
-            </h2>
-            <p>
-              Our car rental service is more than just a means of transportation; it's a gateway to exploration and convenience. With a fleet of meticulously maintained vehicles and a user-friendly booking platform, we strive to redefine the travel experience. Our commitment to exceptional customer service ensures that every journey is smooth and hassle-free. Whether it's a weekend getaway or a cross-country road trip, we provide the perfect ride tailored to your needs. Backed by years of industry expertise and a passion for innovation, we're dedicated to making your travel dreams a reality. Join us and embark on unforgettable adventures with confidence and ease.
-            </p>
-          </div>
-          <div class="detail-box">
-            <h2 class="heading">
-              Why Choose Us
-            </h2>
-            <div class="reasons">
-              <div class="reason">
-                <img src="{% static 'images/u-1.png' %}" alt="Low Rent">
-                <p>Enjoy competitive rates that won't break the bank, allowing you to save more for your adventures. Our transparent pricing ensures no hidden fees or surprises, giving you full control over your travel expenses.</p>
-              </div>
-              <div class="reason">
-                <img src="{% static 'images/u-2.png' %}" alt="Fast Car">
-                <p>Experience the thrill of the open road with our fleet of high-performance vehicles. From zipping through city streets to cruising on highways, our cars are designed for speed and agility, making every journey exhilarating and efficient.</p>
-              </div>
-              <div class="reason">
-                <img src="{% static 'images/u-3.png' %}" alt="Safe Car">
-                <p>Drive confidently knowing that our vehicles undergo rigorous safety inspections and maintenance checks. Equipped with advanced safety features and maintained to the highest standards, our cars prioritize your well-being on the road, ensuring a secure and worry-free travel experience.</p>
-              </div>
-              <div class="reason">
-                <img src="{% static 'images/u-4.png' %}" alt="Quick Support">
-                <p>Rest assured knowing that our dedicated support team is always available to assist you, day or night. Whether you have questions about your reservation or need emergency roadside assistance, our friendly and knowledgeable staff are here to provide prompt and reliable support, ensuring your journey remains smooth and stress-free.</p>
-              </div>
+    <body class="sub_page">
+        <section class="about_section layout_padding2-top layout_padding-bottom ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7 px-0">
+                        <div class="img-box">
+                            <img src="{% static 'images/about-img.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-4">
+                        <div class="detail-box">
+                            <h2>
+                                About Us
+                            </h2>
+                            <p>
+                                Our car rental service is more than just a means of transportation; it's a gateway to exploration and convenience. With a fleet of meticulously maintained vehicles and a user-friendly booking platform, we strive to redefine the travel experience. Our commitment to exceptional customer service ensures that every journey is smooth and hassle-free. Whether it's a weekend getaway or a cross-country road trip, we provide the perfect ride tailored to your needs. Backed by years of industry expertise and a passion for innovation, we're dedicated to making your travel dreams a reality. Join us and embark on unforgettable adventures with confidence and ease.
+                            </p>
+                        </div>
+                        <div class="detail-box">
+                            <h2 class="heading">
+                                Why Choose Us
+                            </h2>
+                            <div class="reasons">
+                                <div class="reason">
+                                    <img src="{% static 'images/u-1.png' %}" alt="Low Rent">
+                                    <p>Enjoy competitive rates that won't break the bank, allowing you to save more for your adventures. Our transparent pricing ensures no hidden fees or surprises, giving you full control over your travel expenses.</p>
+                                </div>
+                                <div class="reason">
+                                    <img src="{% static 'images/u-2.png' %}" alt="Fast Car">
+                                    <p>Experience the thrill of the open road with our fleet of high-performance vehicles. From zipping through city streets to cruising on highways, our cars are designed for speed and agility, making every journey exhilarating and efficient.</p>
+                                </div>
+                                <div class="reason">
+                                    <img src="{% static 'images/u-3.png' %}" alt="Safe Car">
+                                    <p>Drive confidently knowing that our vehicles undergo rigorous safety inspections and maintenance checks. Equipped with advanced safety features and maintained to the highest standards, our cars prioritize your well-being on the road, ensuring a secure and worry-free travel experience.</p>
+                                </div>
+                                <div class="reason">
+                                    <img src="{% static 'images/u-4.png' %}" alt="Quick Support">
+                                    <p>Rest assured knowing that our dedicated support team is always available to assist you, day or night. Whether you have questions about your reservation or need emergency roadside assistance, our friendly and knowledgeable staff are here to provide prompt and reliable support, ensuring your journey remains smooth and stress-free.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-</body>
+    </body>
 {% endblock %}

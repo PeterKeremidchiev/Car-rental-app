@@ -48,7 +48,7 @@
         }
 
         .edit-profile-button a:hover {
-            background-color: red;
+            background-color: #F22324FF;
         }
 
         footer {
@@ -57,25 +57,25 @@
         }
     </style>
 
-<body class="sub_page">
-    <div class="profile-container">
-        <h1>{{ object.full_name }}</h1>
-        {% if object.profile_picture %}
-            <div class="img-box">
-                <img src="{{ object.profile_picture }}" alt="profile-image" />
+    <body class="sub_page">
+        <div class="profile-container">
+            <h1>{{ object.full_name }}</h1>
+            {% if object.profile_picture %}
+                <div class="img-box">
+                    <img src="{{ object.profile_picture }}" alt="profile-image" />
+                </div>
+            {% else %}
+                <div class="img-box">
+                    <img src="{% static 'images/no_profile.jfif' %}" alt="">
+                </div>
+            {% endif %}
+            <h2>{{ object.user.email }}</h2>
+            <h2>Your bookings: {{ bookings }}</h2>
+            <p>Do you want to delete or edit your profile?</p>
+            <div class="edit-profile-button">
+                <a href="{% url 'profile_delete' pk=object.pk %}">Delete</a>
+                <a href="{% url 'profile_edit' pk=object.pk %}">Edit</a>
             </div>
-        {% else %}
-            <div class="img-box">
-                <img src="{% static 'images/no_profile.jfif' %}" alt="">
-            </div>
-        {% endif %}
-        <h2>{{ object.user.email }}</h2>
-        <h2>Your bookings: {{ bookings }}</h2>
-        <p>Do you want to delete or edit your profile?</p>
-        <div class="edit-profile-button">
-            <a href="{% url 'profile_delete' pk=object.pk %}">Delete</a>
-            <a href="{% url 'profile_edit' pk=object.pk %}">Edit</a>
         </div>
-    </div>
-</body>
+    </body>
 {% endblock %}

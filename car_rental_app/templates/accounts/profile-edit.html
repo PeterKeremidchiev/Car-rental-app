@@ -60,15 +60,15 @@
         }
     </style>
 
-<body class="sub_page">
-    <div class="edit-profile-container">
-        <h2>Edit Profile</h2>
-        <form action="{% url 'profile_edit' pk=object.pk %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
+    <body class="sub_page">
+        <div class="edit-profile-container">
+            <h2>Edit Profile</h2>
+            <form action="{% url 'profile_edit' pk=object.pk %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-            <button class="edit-btn" type="submit">Edit</button>
-        </form>
-    </div>
-</body>
+                <button class="edit-btn" type="submit">Edit</button>
+            </form>
+        </div>
+    </body>
 {% endblock %}
