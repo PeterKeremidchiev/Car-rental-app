@@ -31,7 +31,7 @@ class BookCarView(views.View):
             car.available = False
             car.save()
 
-        return redirect('cars')
+        return redirect('book_list')
 
 class DeleteBookingView(views.View):
     def get(self, request, booking_id, *args, **kwargs):

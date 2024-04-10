@@ -8,6 +8,8 @@ from car_rental_app.cars.models import Car, CarImages
 class CarAdmin(admin.ModelAdmin):
     list_display = ('id', 'make', 'model', 'year', 'price_per_day', 'fuel_consumption', 'transmission', 'available', 'booked_by',)
     list_filter = ('available', 'make', 'fuel_consumption', 'transmission')
+    search_fields = ('make', 'model', 'year', 'transmission')
+    ordering = ('id',)
 
 @admin.register(CarImages)
 class CarImagesAdmin(admin.ModelAdmin):
