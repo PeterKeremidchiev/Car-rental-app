@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .container {
+            max-width: 40em;
+            margin: 2em auto;
+            padding: 1.25em;
+            text-align: center;
+
+        }
+
+        .car-form {
+            background-color: #f9f9f9;
+            padding: 1.25em;
+            border-radius: 0.625em;
+            box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.1);
+        }
+
+        .car-form input[type="text"],
+        .car-form select,
+        .car-form input[type="url"]{
+            width: 100%;
+            padding: 0.625em;
+            margin-bottom: 0.9375em;
+            border: 0.0625em solid #ccc;
+            border-radius: 0.313em;
+            box-sizing: border-box;
+        }
+        select {
+            width: 100%;
+            padding: 0.625em;
+            margin-bottom: 0.9375em;
+            border: 0.0625em solid #ccc;
+            border-radius: 0.313em;
+            box-sizing: border-box;
+        }
+        .container form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+
+        .car-form button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.625em 1.25em;
+            border: none;
+            border-radius: 0.313em;
+            cursor: pointer;
+        }
+
+        .car-form button:hover {
+            background-color: #0056b3;
+        }
+        footer  {
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+    <body class="sub_page">
+      <div class="container">
+        <h1>Add image to Car</h1>
+        <form action="{% url 'car_image_create' %}" method="post" class="car-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Add image</button>
+        </form>
+      </div>
+    </body>
+{% endblock %}
