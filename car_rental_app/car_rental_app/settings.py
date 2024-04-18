@@ -31,9 +31,9 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.ngrok.io',
-    '321d-92-247-116-71.ngrok-free.app',
+    '78fa-92-247-116-71.ngrok-free.app',
 ]
-CSRF_TRUSTED_ORIGINS = ['https://321d-92-247-116-71.ngrok-free.app',]
+CSRF_TRUSTED_ORIGINS = ['https://78fa-92-247-116-71.ngrok-free.app']
 
 # Application definition
 
@@ -115,8 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-if DEBUG:
-    AUTH_PASSWORD_VALIDATORS = []
+# if DEBUG:
+#     AUTH_PASSWORD_VALIDATORS = []
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
